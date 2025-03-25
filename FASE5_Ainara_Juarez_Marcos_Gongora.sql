@@ -16,7 +16,17 @@ having total_vols >= 800
 order by total_vols DESC;
 
 -- Pregunta 2
-select 'No ho sé';
+select c.nom, count(*) as total_vols, durada as vol_promig, data as last_vol
+from companyia c
+join avio a on (c.nom = a.companyia)
+join vol v on (a.num_serie = v.avio)
+where c.pais LIKE '%Spain%' /* Falta que no tinguin avions ni cap vol*/
+order by c.nom DESC;
+
+select c.nom
+from companyia c
+join avio a on (c.nom = a.companyia)
+where c.pais LIKE '%Spain%';
 
 -- Pregunta 3
 select 'No ho sé';
